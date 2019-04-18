@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { UsersRoutingModule } from './users-routing.module';
+import { UsersRoutingModule, usersRouterComponents } from './users-routing.module';
 import { UsersServicesModule } from './users-services.module';
 
 import { UserComponent } from './components';
@@ -14,6 +14,9 @@ import { UserComponent } from './components';
     UsersServicesModule,
     UsersRoutingModule
   ],
-  declarations: [UserComponent]
+  declarations: [
+    UserComponent,
+    usersRouterComponents
+  ]
 })
 export class UsersModule { }
