@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
 
     LayoutModule,
+    TasksModule,
     AppRoutingModule
   ],
   providers: [
