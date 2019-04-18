@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessagesService } from './core';
+import { MessagesService, SpinnerService } from './core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(
     public messagesService: MessagesService,
+    public spinnerService: SpinnerService,
     private router: Router
   ) {}
 
