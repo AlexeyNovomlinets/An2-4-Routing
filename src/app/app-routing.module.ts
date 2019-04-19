@@ -20,11 +20,13 @@ const extraOptions: ExtraOptions = {
 const routes: Routes = [
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    data: { title: 'About' }
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: { title: 'Login' }
   },
   {
     path: 'messages',
@@ -34,12 +36,16 @@ const routes: Routes = [
   {
     path: 'admin',
     canLoad: [AuthGuard],
-    loadChildren: './admin/admin.module#AdminModule'
+    loadChildren: './admin/admin.module#AdminModule',
+    data: { title: 'Admin' }
   },
   {
     path: 'users',
     loadChildren: './users/users.module#UsersModule',
-    data: { preload: true }
+    data: {
+      preload: true,
+      title: 'Users'
+    }
   },
   {
     path: '',
@@ -50,7 +56,8 @@ const routes: Routes = [
     // The router will match this route if the URL requested
     // doesn't match any paths for routes defined in our configuration
     path: '**',
-    component: PathNotFoundComponent
+    component: PathNotFoundComponent,
+    data: { title: 'Page Not Found' }
   }
 ];
 
