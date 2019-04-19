@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 
 // rxjs
@@ -20,11 +20,12 @@ export class AppComponent implements OnInit, OnDestroy {
     public messagesService: MessagesService,
     public spinnerService: SpinnerService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private metaService: Meta
   ) {}
 
   ngOnInit() {
-    this.setPageTitles();
+    this.setPageTitlesAndMeta();
   }
 
   ngOnDestroy() {
@@ -44,7 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.messagesService.isDisplayed = true;
   }
 
-  private setPageTitles() {
+  private setPageTitlesAndMeta() {
     this.sub = this.router.events
       .pipe(
         filter(event => event instanceof NavigationEnd),
@@ -59,7 +60,10 @@ export class AppComponent implements OnInit, OnDestroy {
         switchMap(route => route.data)
       )
       .subscribe(
-        data => this.titleService.setTitle(data['title'])
+        data => {
+          this.titleService.setTitle(data['title']);
+          this.metaService.addTags(data['meta']);
+        }
     );
   }
 }
