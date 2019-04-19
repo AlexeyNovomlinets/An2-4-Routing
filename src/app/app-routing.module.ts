@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import {
   Routes,
   RouterModule,
-  PreloadAllModules,
   ExtraOptions
 } from '@angular/router';
 import {
@@ -11,10 +10,10 @@ import {
   LoginComponent,
   PathNotFoundComponent
 } from './layout';
-import { AuthGuard } from './core';
+import { AuthGuard, CustomPreloadingStrategyService } from './core';
 
 const extraOptions: ExtraOptions = {
-  preloadingStrategy: PreloadAllModules,
+  preloadingStrategy: CustomPreloadingStrategyService,
   enableTracing: true // Makes the router log all its internal events to the console.
 };
 
@@ -39,7 +38,8 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    loadChildren: './users/users.module#UsersModule'
+    loadChildren: './users/users.module#UsersModule',
+    data: { preload: true }
   },
   {
     path: '',
