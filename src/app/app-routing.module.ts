@@ -22,6 +22,14 @@ const routes: Routes = [
     outlet: 'messages'
   },
   {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'users',
+    loadChildren: './users/users.module#UsersModule'
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

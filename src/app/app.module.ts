@@ -7,9 +7,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { AdminModule } from './admin/admin.module';
 import { TasksModule } from './tasks/tasks.module';
-import { UsersModule } from './users/users.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -23,9 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     LayoutModule,
     CoreModule,
     SharedModule,
-    AdminModule,
     TasksModule,
-    UsersModule,
     AppRoutingModule,
   ],
   providers: [
